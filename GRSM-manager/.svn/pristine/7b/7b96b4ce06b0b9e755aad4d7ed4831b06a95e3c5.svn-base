@@ -1,0 +1,37 @@
+package com.guanjunhuanyige.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.guanjunhuanyige.mapper.TbItemMapper;
+import com.guanjunhuanyige.pojo.TbItem;
+import com.guanjunhuanyige.pojo.TbItemExample;
+import com.guanjunhuanyige.pojo.TbItemExample.Criteria;
+import com.guanjunhuanyige.service.ItemService;
+
+/**
+ * 商品管理Service
+ * @author 落雪封尘
+ *
+ */
+@Service
+public class ItemServiceImpl implements ItemService {
+
+	@Autowired
+	private TbItemMapper itemMapper;
+	
+	@Override
+	public TbItem getItemById(long itemId) {
+		TbItemExample example = new TbItemExample();
+		Criteria c = example.createCriteria();
+		c.andIdEqualTo(itemId);										//查询条件
+		List <TbItem> list = itemMapper.selectByExample(example);	//执行查询
+		if (list != null && list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
+
+}

@@ -1,0 +1,4 @@
+com\guanjunhuanyige\mapper\ItemMapper.class
+com\guanjunhaunyige\dao\SearchDao.class
+com\guanjunhuanyige\search\service\impl\SearchItemServiceImpl.class
+com\guanjunhuanyige\search\service\impl\SearchServiceImpl.class
